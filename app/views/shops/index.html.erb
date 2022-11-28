@@ -1,0 +1,21 @@
+<h1>my shop</h1>
+<%= link_to "new shop", new_shop_path %>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Address</td>
+    <td>Tel</td>
+    <td>Introduce</td>
+  </tr>
+  <% @shops.each do |shop| %>
+  <tr>
+    <td><%= link_to shop.name, shop_path(shop.id) %></td>
+    <td><%= shop.address %></td>
+    <td><%= shop.tel %></td>
+    <td><%= shop.introduce %></td>
+    <td><%= link_to "修改", edit_shop_path(shop.id) %></td>
+    <td><%= link_to "刪除", shop_path(shop.id), method: "delete", data: {confirm: "確定刪除嗎"} %></td>
+  </tr>
+  <% end %>
+</table>
